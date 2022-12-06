@@ -9,6 +9,12 @@ use App\Models\Project;
 class RNfuncionalController extends Controller
 {
     public function addRNF(Request $request, Project $project){
+
+        $request -> validate([
+            'claveRf' => 'required',
+            'descRF' => 'required'
+        ]);
+
         $RNFuncional = new RNfuncional();
 
         $RNFuncional -> clave = $request -> claveRNF;

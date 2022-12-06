@@ -9,7 +9,10 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg"> 
                     <h1 class="titulo">Inicio</h1>
-                    <a href="{{route('listarPro')}}" class="btn btn-warning" >REGRESAR</a>
+                    <a href="{{route('listarPro')}}" class="btn btn-warning">
+                        <img src="https://cdn-icons-png.flaticon.com/512/60/60775.png" width="20" height="20">
+                        <b>REGRESAR</b>
+                    </a>
                     <br><br>
                     <table class="table table-info">
                         <tr>
@@ -29,16 +32,40 @@
                 <div class="bg-white overflow-hidden shadow-x1 sm:rounded-lg">
                     <table>
                         <tr>
-                            <td align="right"><a href="{{route('actor', $project->id)}}" class="btn btn-secondary">AGREGAR ACTOR</a></td>
-                            <td align="left"><a href="{{route('artefacto', $project->id)}}" class="btn btn-secondary">AGREGAR ARTEFACTO</a></td>
-                            
+                            <td align="right">
+                                <a href="{{route('actor', $project->id)}}" class="btn btn-light">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/4175/4175032.png" width="25" height="25">
+                                    AGREGAR ACTOR
+                                </a>
+                            </td>
+                            <td align="left">
+                                <a href="{{route('artefacto', $project->id)}}" class="btn btn-light">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/1091/1091916.png" width="25" height="25">
+                                    AGREGAR ARTEFACTO
+                                </a>
+                            </td>
                         </tr>
                         <tr>
-                            <td><a href="{{route('RFuncional', $project->id)}}" class="btn btn-secondary">AGREGAR REQUERIMIENTO FUNCIONAL</a></td>
-                            <td><a href="{{route('RNFuncional', $project->id)}}" class="btn btn-secondary">AGREGAR REQUERIMIENTO NO FUNCIONAL</a></td>
+                            <td>
+                                <a href="{{route('RFuncional', $project->id)}}" class="btn btn-light">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/4698/4698650.png" width="25" height="25">
+                                    AGREGAR REQUERIMIENTO FUNCIONAL
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{{route('RNFuncional', $project->id)}}" class="btn btn-light">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/444/444219.png" width="25" height="25">
+                                    AGREGAR REQUERIMIENTO NO FUNCIONAL
+                                </a>
+                            </td>
                         </tr>
                         <tr>
-                            <td colspan="2" align="center"><a href="{{route('proceso', $project->id)}}" class="btn btn-secondary">AGREGAR PROCESO</a></td>
+                            <td colspan="2" align="center">
+                                <a href="{{route('proceso', $project->id)}}" class="btn btn-light">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/2360/2360235.png" width="25" height="25">
+                                    AGREGAR PROCESO
+                                </a>
+                            </td>
                         </tr>
                     </table>
                 </div>

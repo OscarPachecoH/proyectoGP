@@ -9,6 +9,13 @@ use App\Models\Project;
 class ArtefactoController extends Controller
 {
     public function addArt(Request $request, Project $project){
+
+        $request -> validate([
+            'claveArt' => 'required|min:4',
+            'nomArt' => 'required',
+            'descArt' => 'required'
+        ]);
+
         $artefacto = new Artefacto();
 
         $artefacto -> clave = $request -> claveArt;

@@ -9,6 +9,14 @@ use App\Models\Project;
 class ActorController extends Controller
 {
     public function addAct(Request $request, Project $project){
+
+        $request -> validate([
+            'claveAct' => 'required',
+            'nomAct' => 'required|min:4',
+            'descAct' => 'required',
+            'caracAct' => 'required',
+            'resAct' => 'required'
+        ]);
         $actor = new Actor();
 
         $actor -> clave = $request -> claveAct;

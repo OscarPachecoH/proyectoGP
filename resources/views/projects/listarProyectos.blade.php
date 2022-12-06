@@ -25,7 +25,10 @@
                     </table>
                     {{$projects->links()}}
                     <br>
-                    <a href="{{route('projects')}}"><button class="btn btn-warning">Regresar</button></a>
+                    <a href="{{route('projects')}}" class="btn btn-warning">
+                        <img src="https://cdn-icons-png.flaticon.com/512/60/60775.png" width="20" height="20">
+                        <b>REGRESAR</b>
+                    </a>
                 </div>
             </div>
         </div>

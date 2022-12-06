@@ -18,7 +18,6 @@
     
                     <h1>Editar Proyecto</h1><br><br>
                     <form action="{{route('projects.update',$project)}}" method="POST" >
-    
                         @csrf
                         @method('put')
                         <table>
@@ -33,7 +32,7 @@
                             </tr>
                         </table>
                         <button class="btn btn-success">Actualizar</button><br>
-                        <a href="{{route('projects.show',$project)}}" class="btn btn-danger" >Regresar</a>
+                        <a href="{{route('projects.show',$project)}}" class="btn btn-danger" >REGRESAR</a>
                     </form>
                 </div>
             </div>

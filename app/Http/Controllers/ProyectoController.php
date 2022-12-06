@@ -9,6 +9,11 @@ use App\Models\Actor;
 class ProyectoController extends Controller
 {
     public function addPro(Request $request){
+
+        $request->validate([
+            'nomPro' => 'required|min:5'
+        ]);
+
         $projects = new Project();
         
         $projects -> nombreProyecto = $request -> nomPro;

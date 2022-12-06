@@ -14,7 +14,11 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <h1>Editar Actor</h1><br><br>
+                    <h1>Editar Actor</h1>
+                    <a href="{{route('actores.show',array($project->id, $actor->id))}}" class="btn btn-warning" >
+                        <img src="https://cdn-icons-png.flaticon.com/512/60/60775.png" width="20" height="20">
+                        <b>REGRESAR</b>
+                    </a><br><br>
                     <form action="{{route('actores.update',array($project->id, $actor->id))}}" method="POST" >
                         @csrf
                         @method('put')
@@ -74,8 +78,10 @@
                                 </td>
                             </tr>
                         </table>
-                        <button class="btn btn-success">Actualizar</button><br>
-                        <a href="{{route('actores.show',array($project->id, $actor->id))}}" class="btn btn-danger" >Regresar</a>
+                        <button class="btn btn-primary">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3489/3489659.png" width="20" height="20">
+                            <b>ACTUALIZAR</b>
+                        </button><br>
                     </form>
                 </div>
             </div>

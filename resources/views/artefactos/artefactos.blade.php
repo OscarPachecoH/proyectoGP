@@ -15,8 +15,13 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <h1>AGREGAR ARTEFACTO </h1>
+                    <a class="btn btn-warning" href="{{route('projects.show', $project->id)}}">
+                        <img src="https://cdn-icons-png.flaticon.com/512/60/60775.png" width="20" height="20">
+                        <b>REGRESAR</b>
+                    </a><br><br>
                     <form action="{{route('addArt', $project->id)}}" method="POST">
                         @csrf
+                        @include('layouts.messages')
                             <table>
                                 <tr>
                                     <td class="label">
@@ -44,10 +49,15 @@
                                     </td>
                                 </tr>
                             </table>
-                            <button class="btn btn-success">AGREGAR</button><br>
+                            <button class="btn btn-success">
+                                <img src="https://cdn-icons-png.flaticon.com/512/2740/2740600.png" width="20" height="20">
+                                <b>AGREGAR</b>
+                            </button><br>
                     </form>
-                    <a class="btn btn-primary" href="{{route('listarArt', $project->id)}}">LISTA DE ARTEFACTOS</a>
-                    <a class="btn btn-danger" href="{{route('projects.show', $project->id)}}">REGRESAR</a>
+                    <a class="btn btn-primary" href="{{route('listarArt', $project->id)}}">
+                        <img src="https://cdn-icons-png.flaticon.com/512/839/839860.png" width="20" height="20">
+                        <b>LISTA DE ARTEFACTOS</b>
+                    </a>
                 </div>
             </div>
         </div>

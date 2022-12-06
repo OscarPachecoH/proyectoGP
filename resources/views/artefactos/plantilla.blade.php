@@ -8,20 +8,14 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <table>
-                        <tr>
-                            <td>
-                                {{$artefacto->clave}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                {{$artefacto->nombre}}
-                            </td>
-                        </tr>
-                    </table>
+                    <h1>{{$artefacto->clave . ": " . $artefacto->nombre}}</h1>
+                    <a href="{{route('showArt', array($project->id, $artefacto->id))}}" class="btn btn-warning">
+                        <img src="https://cdn-icons-png.flaticon.com/512/60/60775.png" width="20" height="20">
+                        <b>REGRESAR</b>
+                    </a>
                     <form action="{{route('agregarAtributo', array($project->id, $artefacto->id))}}" method="POST">
                         @csrf
+                        @include('layouts.messages')
                         <table>
                             <tr>
                                 <td>Atributo:</td>
@@ -40,7 +34,10 @@
                                 <td><input type="hidden" name="idProyecto" value="{{$project->id}}"></td>
                             </tr>
                         </table><br>
-                        <button class="btn btn-success">Agregar</button>
+                        <button class="btn btn-success">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2740/2740600.png" width="20" height="20">
+                            <b>AGREGAR</b>
+                        </button>
                     </form><br>
                     <table class="table table-primary">
                         <tr>

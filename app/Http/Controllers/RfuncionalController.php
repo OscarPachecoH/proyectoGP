@@ -9,6 +9,12 @@ use App\Models\Project;
 class RfuncionalController extends Controller
 {
     public function addRF(Request $request, Project $project){
+
+        $request -> validate([
+            'claveRf' => 'required',
+            'descRF' => 'required'
+        ]);
+
         $RFuncional = new Rfuncional();
 
         $RFuncional -> clave = $request -> claveRF;

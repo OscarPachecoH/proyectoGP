@@ -18,6 +18,7 @@
 
                 <form action="{{route('addPro')}}" method="POST">
                     @csrf
+                    @include('layouts.messages')
                         <table>
                             <tr>
                                 <td>
@@ -28,10 +29,15 @@
                                 </td>
                             </tr>
                         </table>
-                        <button class="btn btn-success">AGREGAR</button><br><br>
+                        <button class="btn btn-success">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2740/2740600.png" width="20" height="20">
+                            <b>AGREGAR</b>
+                        </button><br><br>
                 </form>
-                <a class="btn btn-primary" href="{{route('listarPro')}}">LISTA DE PROYECTOS</a>
-
+                <a class="btn btn-primary" href="{{route('listarPro')}}">
+                    <img src="https://cdn-icons-png.flaticon.com/512/839/839860.png" width="20" height="20">
+                    <b>LISTA DE PROYECTOS</b>
+                </a>
             </div>
         </div>
     </div>
