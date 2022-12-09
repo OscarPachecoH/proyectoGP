@@ -13,6 +13,9 @@
                         <img src="https://cdn-icons-png.flaticon.com/512/60/60775.png" width="20" height="20">
                         <b>REGRESAR</b>
                     </a>
+                    <a class="btn btn-warning" href="{{route('projects.show', $project->id)}}">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4675/4675164.png" width="20" height="20" title="Inicio">
+                    </a><br><br>
                     <form action="{{route('agregarAtributo', array($project->id, $artefacto->id))}}" method="POST">
                         @csrf
                         @include('layouts.messages')
@@ -25,11 +28,37 @@
                                 <td>Excepciones:</td>
                             </tr>
                             <tr>
-                                <td><input type="text" name="atributo"></td>
-                                <td><input type="text" name="descripcion"></td>
-                                <td><input type="text" name="tipo"></td>
-                                <td><input type="text" name="rango"></td>
-                                <td><input type="text" name="excepciones"></td>
+                                <td><input type="text" name="atributo" value="{{old('atributo')}}"></td>
+                                <td><input type="text" name="descripcion" value="{{old('descripcion')}}"></td>
+                                <td>
+                                    <select name="tipo" id="">
+                                        <option value="">--SELECCIONAR--</option>
+                                        <option value="Numerico">Numerico</option>
+                                        <option value="Cadena">Cadena</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name="rango" id="">
+                                        <option value="">--SELECCIONAR--</option>
+                                        <option value="[0-9]">[0-9]</option>
+                                        <option value="[A-Z], [a-z]">[A-Z], [a-z]</option>
+                                        <option value="[A-Z], [a-z], [0-9]">[A-Z], [a-z], [0-9]</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="checkbox" name="exec1" id="excep1" value="No se permiten letras">
+                                    <label for="excep1">No se permiten letras</label><br>
+                                    <input type="checkbox" name="exec2" id="excep2" value="No se permiten numeros">
+                                    <label for="excep2">No se permiten numeros</label><br>
+                                    <input type="checkbox" name="exec3" id="excep2" value="No se caracteres especiales">
+                                    <label for="excep2">No se permiten caracteres especiales</label>
+                                    <!--select name="excepciones" id="">
+                                        <option value="">--SELECCIONAR--</option>
+                                        <option value="No se permiten letras">No se permiten letras</option>
+                                        <option value="No se permiten numeros">No se permiten numeros</option>
+                                        <option value="No se permiten caracteres especiales">No se permiten caracteres especiales</option>
+                                    </select-->
+                                </td>
                                 <td><input type="hidden" name="idArtefacto" value="{{$artefacto->id}}"></td>
                                 <td><input type="hidden" name="idProyecto" value="{{$project->id}}"></td>
                             </tr>
@@ -41,20 +70,20 @@
                     </form><br>
                     <table class="table table-primary">
                         <tr>
-                            <td class="bg-primary">Atributo:</td>
-                            <td class="bg-primary">Descripción:</td>
-                            <td class="bg-primary">Tipo:</td>
-                            <td class="bg-primary">Rango:</td>
-                            <td class="bg-primary">Excepciones:</td>
+                            <td class="bg-primary" align="center">Atributo:</td>
+                            <td class="bg-primary" align="center">Descripción:</td>
+                            <td class="bg-primary" align="center">Tipo:</td>
+                            <td class="bg-primary" align="center">Rango:</td>
+                            <td class="bg-primary" align="center">Excepciones:</td>
                         </tr>
                         @foreach ($listaPlantilla as $plantilla)
                             @if ($plantilla->idArtefacto == $artefacto->id && $plantilla->idProyecto == $project->id)
                                 <tr>
-                                    <td>{{$plantilla->atributos}}</td>
-                                    <td>{{$plantilla->descripcion}}</td>
-                                    <td>{{$plantilla->tipo}}</td>
-                                    <td>{{$plantilla->rango}}</td>
-                                    <td>{{$plantilla->excepciones}}</td>
+                                    <td align="center">{{$plantilla->atributos}}</td>
+                                    <td align="center">{{$plantilla->descripcion}}</td>
+                                    <td align="center">{{$plantilla->tipo}}</td>
+                                    <td align="center">{{$plantilla->rango}}</td>
+                                    <td align="center">{{$plantilla->excepciones}}</td>
                                 </tr>
                             @endif
                         @endforeach

@@ -1,5 +1,6 @@
 @if(isset($errors) && count($errors) > 0)
     <div class="alert alert-danger">
+        <h4>Algo salio mal</h4>
         <ul class="list-unstyled mb-0">
             @foreach ($errors->all() as $error)
                 <li>{{$error}}</li>

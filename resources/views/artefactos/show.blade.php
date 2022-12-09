@@ -14,6 +14,9 @@
                         <img src="https://cdn-icons-png.flaticon.com/512/60/60775.png" width="20" height="20">
                         <b>REGRESAR</b>
                     </a>
+                    <a class="btn btn-warning" href="{{route('projects.show', $project->id)}}">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4675/4675164.png" width="20" height="20" title="Inicio">
+                    </a>
                     <br><br>
                     <table class="table table-info">
                         <tr>
@@ -46,7 +49,7 @@
                         </tr>
                         <tr>
                             <td align="center" colspan="2">
-                                <a href="{{route('addPlantilla', array($project->id, $artefacto->id))}}" class="btn btn-primary">
+                                <a href="{{route('addPlantilla', array($project->id, $artefacto->id))}}" class="btn btn-outline-dark">
                                     <img src="https://cdn-icons-png.flaticon.com/512/2875/2875069.png" width="20" height="20">
                                     <b>HACER PLANTILLA</b>
                                 </a><br>

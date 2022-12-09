@@ -18,19 +18,25 @@ class PlantillaController extends Controller
     public function addAtributo(Request $request, Project $project, Artefacto $artefacto){
 
         $request -> validate([
-            'atributo' => 'required',
+            'atributo' => 'required|min:3',
             'descripcion' => 'required',
             'tipo' => 'required',
             'rango' => 'required',
-            'excepciones' => 'required'
         ]);
 
+        $excepciones = "";
+
+        $excepciones .= $request -> exec1 .
+                        $request -> exec2 . 
+                        $request -> exec3;
+
         $plantilla = new Plantilla();
+
         $plantilla -> atributos = $request -> atributo;
         $plantilla -> descripcion = $request -> descripcion;
         $plantilla -> tipo = $request -> tipo;
         $plantilla -> rango = $request -> rango;
-        $plantilla -> excepciones = $request -> excepciones;
+        $plantilla -> excepciones = $excepciones;
         $plantilla -> idArtefacto = $request -> idArtefacto;
         $plantilla -> idProyecto = $request -> idProyecto;
         

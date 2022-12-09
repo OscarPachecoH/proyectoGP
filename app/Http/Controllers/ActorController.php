@@ -14,7 +14,7 @@ class ActorController extends Controller
             'claveAct' => 'required',
             'nomAct' => 'required|min:4',
             'descAct' => 'required',
-            'caracAct' => 'required',
+            'caractAct' => 'required',
             'resAct' => 'required'
         ]);
         $actor = new Actor();

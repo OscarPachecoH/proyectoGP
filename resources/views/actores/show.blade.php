@@ -14,8 +14,9 @@
                         <img src="https://cdn-icons-png.flaticon.com/512/60/60775.png" width="20" height="20">
                         <b>REGRESAR</b>
                     </a>
-                    <br><br>
-                    
+                    <a class="btn btn-warning" href="{{route('projects.show', $project->id)}}">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4675/4675164.png" width="20" height="20" title="Inicio">
+                    </a><br><br>
                     <table class="table table-info">
                         <tr>
                             <td class="bg-info" align="right"><b>Clave</b></td>
