@@ -28,6 +28,8 @@
                                 <td align="center">{{$RFuncional->clave}}</td>
                                 <td align="center">{{$RFuncional->descripcion}}</td>
                                 <td align="center">
+                                    <a href="{{route('editRF', array($project->id, $RFuncional->id))}}" class="btn btn-outline-primary"><img src="https://img.icons8.com/ios/50/null/edit-file.png" width="20" height="20" title="Editar"/>
+                                    </a>
                                     <form action="{{route('RFuncionales.destroy', $RFuncional)}}"  method="POST">
                                         @csrf
                                         @method('delete')

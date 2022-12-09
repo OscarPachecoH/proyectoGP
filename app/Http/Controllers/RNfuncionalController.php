@@ -3,16 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Rnfuncional;
+use App\Models\RNfuncional;
 use App\Models\Project;
+use Illuminate\Support\Facades\App;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class RNfuncionalController extends Controller
 {
     public function addRNF(Request $request, Project $project){
 
         $request -> validate([
-            'claveRF' => 'required',
-            'descRF' => 'required'
+            'claveRNF' => 'required',
+            'descRNF' => 'required'
         ]);
 
         $RNFuncional = new RNfuncional();
@@ -35,8 +37,26 @@ class RNfuncionalController extends Controller
         return view('RNFuncionales.listarRNFuncional',compact('RNFuncionales'), compact('project'));
     }
 
-    public function destroy(RNfuncional $RNfuncional){
-        $RNfuncional->delete();
+    public function destroy(RNfuncional $RNFuncional){
+        $RNFuncional->delete();
         return redirect()->route('listarRNF');
+    }
+
+    public function editRNF(Project $project, RNfuncional $RNFuncional){
+        $RNFuncionales = RNfuncional::orderBy('id', 'asc')->paginate();
+        return view('RNFuncionales.edit', compact('RNFuncional', 'project'), compact('RNFuncionales'));
+    }
+
+    public function updateRNF(Request $request,Project $project,RNfuncional $RNFuncional){
+        $RNFuncional->update($request->all());
+        return redirect()->route('listarRNF',compact('project'));
+    }
+
+    public function generatepdf($project){
+        $pro = Project::find($project);
+        $listaRNF = Rnfuncional::orderBy('id', 'asc')->paginate();
+        $pdf = App::make('dompdf.wrapper');
+        $pdf=PDF::loadView('RNFuncionales.pdfRNF',compact('listaRNF'), compact('pro'))->setOptions(['defaultFont'=>'sans-serif']);
+        return $pdf->stream('PlantillaRNF.pdf'); 
     }
 }

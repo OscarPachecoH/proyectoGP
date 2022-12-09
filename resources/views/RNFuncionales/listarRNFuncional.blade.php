@@ -27,10 +27,12 @@
                                 <td align="center">{{$RNFuncional->clave}}</td>
                                 <td align="center">{{$RNFuncional->descripcion}}</td>
                                 <td align="center">
+                                    <a href="{{route('editRNF', array($project->id, $RNFuncional->id))}}" class="btn btn-outline-primary"><img src="https://img.icons8.com/ios/50/null/edit-file.png" width="20" height="20" title="Editar"/>
+                                    </a>
                                     <form action="{{route('RNFuncionales.destroy', $RNFuncional)}}"  method="POST">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-danger">
+                                        <button type="submit" class="btn btn-outline-danger">
                                             <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" width="20" height="20" title="Eliminar">
                                         </button><br><br>
                                     </form>
@@ -40,6 +42,9 @@
                         @endif 
                     @endforeach
                     </table>
+                    <a href="{{route('pdfRNF',$project->id)}}">
+                        <img src="https://efis.mk/wp-content/uploads/2019/08/pdf-icon.png" width="150" height="150">
+                    </a>
                     {{$RNFuncionales->links()}}
                     <br><br>
                 </div>
