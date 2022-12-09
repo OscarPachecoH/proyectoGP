@@ -18,6 +18,9 @@
                     <a href="{{route('showArt',array($project->id, $artefacto->id))}}" class="btn btn-warning">
                         <img src="https://cdn-icons-png.flaticon.com/512/60/60775.png" width="20" height="20">
                         <b>REGRESAR</b>
+                    </a>
+                    <a class="btn btn-warning" href="{{route('projects.show', $project->id)}}">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4675/4675164.png" width="20" height="20" title="Inicio">
                     </a><br><br>
                     <form action="{{route('updateArt', array($project->id, $artefacto->id))}}" method="POST" >
                         @csrf

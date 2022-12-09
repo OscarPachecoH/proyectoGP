@@ -60,13 +60,20 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2" align="center">
+                            <td align="right">
                                 <a href="{{route('proceso', $project->id)}}" class="btn btn-light">
                                     <img src="https://cdn-icons-png.flaticon.com/512/2360/2360235.png" width="25" height="25">
                                     AGREGAR PROCESO
                                 </a>
                             </td>
+                            <td align="left">
+                                <a href="{{route('caso', $project->id)}}" class="btn btn-light">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/2360/2360235.png" width="25" height="25">
+                                    AGREGAR CASO DE USO
+                                </a>
+                            </td>
                         </tr>
+                       
                     </table>
                 </div>
             </div>

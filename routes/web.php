@@ -8,6 +8,7 @@ use App\Http\Controllers\ProcesoController;
 use App\Http\Controllers\ProcesoplantillaController;
 use App\Http\Controllers\RfuncionalController;
 use App\Http\Controllers\RNfuncionalController;
+use App\Http\Controllers\CasoController;
 use App\Models\Procesoplantilla;
 use Illuminate\Support\Facades\Route;
 
@@ -110,4 +111,15 @@ Route::controller(ProcesoController::class)->group(function(){
 Route::controller(ProcesoplantillaController::class)->group(function(){
     Route::get('/project/{project}/procesos/{proceso}/plantillaProc', 'plantillaProc') -> name('addPlantillaProc');
     Route::post('/project/{project}/procesos/{proceso}/agregarProc', 'addAtributoProc') -> name('agregarAtributoProc');
+});
+
+
+Route::controller(CasoController::class)->group(function(){
+    Route::post('/cosos/{project}','addCU')                         -> name('addCU');
+    Route::get('projects/{project}/casos', 'plantillaCasos')        -> name('caso');
+    Route::get('projects/{project}/casoslista', 'listarCU')         -> name('listarCU');
+    Route::delete('casos/{caso}', 'destroy')                        -> name('casos.destroy');
+    Route::get('project/{project}/cosos/{caso}', 'showCU')          -> name('showCU');
+    Route::get('projects/{project}/casos/{caso}/edit', 'editCU')    -> name('editCU');
+    Route::put('projects/{project}/casos/{caso}', 'updateCU')       -> name('updateCU');
 });
