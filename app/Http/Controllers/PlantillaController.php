@@ -6,6 +6,8 @@ use App\Models\Artefacto;
 use App\Models\Plantilla;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class PlantillaController extends Controller
@@ -37,5 +39,14 @@ class PlantillaController extends Controller
         $plantilla -> save();
 
         return redirect()->route('addPlantilla', compact('project', 'artefacto'));
+    }
+
+    public function generatepdf($project,$artefacto){
+        $pro = Project::find($project);
+        $art = Artefacto::find($artefacto);
+        $listaPlantilla = Plantilla::orderBy('id', 'asc')->paginate();
+        $pdf = App::make('dompdf.wrapper');
+        $pdf=PDF::loadView('artefactos.pdfArt',compact('listaPlantilla'),compact('art','pro'))->setOptions(['defaultFont'=>'sans-serif']);
+        return $pdf->stream('PlantillaArtefacto-'.$art->clave.'.pdf'); 
     }
 }

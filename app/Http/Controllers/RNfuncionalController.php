@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\RNfuncional;
+use App\Models\Rnfuncional;
 use App\Models\Project;
 
 class RNfuncionalController extends Controller
@@ -11,7 +11,7 @@ class RNfuncionalController extends Controller
     public function addRNF(Request $request, Project $project){
 
         $request -> validate([
-            'claveRf' => 'required',
+            'claveRF' => 'required',
             'descRF' => 'required'
         ]);
 

@@ -34,6 +34,9 @@
                         @endif 
                     @endforeach
                     </table>
+                    <a href="{{route('pdfListArt',$project->id)}}">
+                        <img src="https://efis.mk/wp-content/uploads/2019/08/pdf-icon.png" width="150" height="150">
+                    </a>
                     {{$artefactos->links()}}
                     <br><br>
                 </div>

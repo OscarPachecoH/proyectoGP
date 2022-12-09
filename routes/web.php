@@ -45,11 +45,12 @@ Route::middleware([
 });
 
 Route::controller(ActorController::class)->group(function(){
-    Route::post('/actores/{project}','addAct')                    -> name('addAct');
-    Route::get('projects/{project}/actores/{actor}', 'show')      -> name('actores.show');
-    Route::get('projects/{project}/actores/{actor}/edit', 'edit') -> name('actores.edit');
-    Route::put('projects/{project}/actores/{actor}', 'update')    -> name('actores.update');
-    Route::delete('actores/{actor}', 'destroy')                   -> name('actores.destroy');
+    Route::post('/actores/{project}','addAct')                          -> name('addAct');
+    Route::get('projects/{project}/actores/{actor}', 'show')            -> name('actores.show');
+    Route::get('projects/{project}/actores/{actor}/edit', 'edit')       -> name('actores.edit');
+    Route::put('projects/{project}/actores/{actor}', 'update')          -> name('actores.update');
+    Route::delete('actores/{actor}', 'destroy')                         -> name('actores.destroy');
+    Route::get('project/{project}/actor/{actor}/pdf','generatepdf')     -> name('actores.pdf');
 });
 
 Route::controller(ProyectoController::class)->group(function(){
@@ -64,27 +65,30 @@ Route::controller(ProyectoController::class)->group(function(){
 });
 
 Route::controller(ArtefactoController::class)->group(function(){
-    Route::post('/artefactos/{project}','addArt')                           -> name('addArt');
-    Route::get('projects/{project}/artefactos', 'plantillaArtefacto')       -> name('artefacto');
-    Route::get('projects/{project}/artefactoslista', 'listarArt')           -> name('listarArt');
-    Route::get('project/{project}/artefactos/{artefacto}', 'showArt')       -> name('showArt');
-    Route::get('projects/{project}/artefactos/{artefacto}/edit', 'editArt') -> name('editArt');
-    Route::put('projects/{project}/artefactos/{artefacto}', 'updateArt')    -> name('updateArt');
-    Route::delete('artefactos/{artefacto}', 'destroyArt')                   -> name('destroyArt');
+    Route::post('/artefactos/{project}','addArt')                               -> name('addArt');
+    Route::get('projects/{project}/artefactos', 'plantillaArtefacto')           -> name('artefacto');
+    Route::get('projects/{project}/artefactoslista', 'listarArt')               -> name('listarArt');
+    Route::get('project/{project}/artefactos/{artefacto}', 'showArt')           -> name('showArt');
+    Route::get('projects/{project}/artefactos/{artefacto}/edit', 'editArt')     -> name('editArt');
+    Route::put('projects/{project}/artefactos/{artefacto}', 'updateArt')        -> name('updateArt');
+    Route::delete('artefactos/{artefacto}', 'destroyArt')                       -> name('destroyArt');
+    Route::get('project/{project}/pdfArtefactos','generatepdf')                 -> name('pdfListArt');
 });
 
 Route::controller(PlantillaController::class)->group(function(){
-    Route::get('/project/{project}/artefactos/{artefacto}/plantilla', 'plantilla') -> name('addPlantilla');
+    Route::get('/project/{project}/artefactos/{artefacto}/plantilla', 'plantilla')  -> name('addPlantilla');
     Route::post('/project/{project}/artefactos/{artefacto}/agregar', 'addAtributo') -> name('agregarAtributo');
+    Route::get('project/{project}/artefacto/{artefacto}/pdf','generatepdf')         -> name('pdfArt');
 });
 
 Route::controller(RfuncionalController::class)->group(function(){
-    Route::post('/RFuncionales/{project}','addRF')                         -> name('addRF');
-    Route::get('projects/{project}/RFuncionales', 'plantillaRFuncionales') -> name('RFuncional');
-    Route::get('projects/{project}/RFuncionaleslista', 'listarRF')         -> name('listarRF');
-    Route::delete('RFuncionales/{RFuncional}', 'destroy')                  -> name('RFuncionales.destroy');
-
+    Route::post('/RFuncionales/{project}','addRF')                              -> name('addRF');
+    Route::get('projects/{project}/RFuncionales', 'plantillaRFuncionales')      -> name('RFuncional');
+    Route::get('projects/{project}/RFuncionaleslista', 'listarRF')              -> name('listarRF');
+    Route::delete('RFuncionales/{RFuncional}', 'destroy')                       -> name('RFuncionales.destroy');
+    Route::get('project/{project}/pdfRFuncionales','generatepdf')               -> name('pdfRF');
 });
+
 Route::controller(RNfuncionalController::class)->group(function(){
     Route::post('/RNFuncionales/{project}','addRNF')                         -> name('addRNF');
     Route::get('projects/{project}/RNFuncionales', 'plantillaRNFuncionales') -> name('RNFuncional');

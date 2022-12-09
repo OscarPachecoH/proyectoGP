@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Actor;
 use App\Models\Project;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\View;
 
 class ActorController extends Controller
 {
@@ -14,7 +17,7 @@ class ActorController extends Controller
             'claveAct' => 'required',
             'nomAct' => 'required|min:4',
             'descAct' => 'required',
-            'caracAct' => 'required',
+            'caractAct' => 'required',
             'resAct' => 'required'
         ]);
         $actor = new Actor();
@@ -52,5 +55,12 @@ class ActorController extends Controller
     public function destroy(Actor $actor){
         $actor->delete();
         return redirect()->route('listarAct');
+    }
+
+    public function generatepdf($project, Actor $actor){
+        $pro = Project::find($project);
+        $pdf = App::make('dompdf.wrapper');
+        $pdf=PDF::loadView('actores.pdfAct',compact('actor','pro'))->setOptions(['defaultFont'=>'sans-serif']);
+        return $pdf->stream('PlantillaActor-'.$actor->clave.'.pdf'); 
     }
 }

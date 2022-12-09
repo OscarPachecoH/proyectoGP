@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Artefacto;
 use App\Models\Project;
+use Illuminate\Support\Facades\App;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ArtefactoController extends Controller
 {
@@ -54,6 +56,14 @@ class ArtefactoController extends Controller
     public function destroyArt(Artefacto $artefacto){
         $artefacto->delete();
         return redirect()->route('listarArt');
+    }
+
+    public function generatepdf($project){
+        $pro = Project::find($project);
+        $listaArt = Artefacto::orderBy('id', 'asc')->paginate();
+        $pdf = App::make('dompdf.wrapper');
+        $pdf=PDF::loadView('artefactos.pdfArtefactos',compact('listaArt'), compact('pro'))->setOptions(['defaultFont'=>'sans-serif']);
+        return $pdf->stream('PlantillaArtefactos.pdf'); 
     }
 
 }
