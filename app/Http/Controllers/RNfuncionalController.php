@@ -42,11 +42,6 @@ class RNfuncionalController extends Controller
         return redirect()->route('listarRNF');
     }
 
-<<<<<<< HEAD
-    public function generatepdf($project){
-        $pro = Project::find($project);
-        $listaRNF = RNfuncional::orderBy('id', 'asc')->paginate();
-=======
     public function editRNF(Project $project, RNfuncional $RNFuncional){
         $RNFuncionales = RNfuncional::orderBy('id', 'asc')->paginate();
         return view('RNFuncionales.edit', compact('RNFuncional', 'project'), compact('RNFuncionales'));
@@ -60,7 +55,6 @@ class RNfuncionalController extends Controller
     public function generatepdf($project){
         $pro = Project::find($project);
         $listaRNF = Rnfuncional::orderBy('id', 'asc')->paginate();
->>>>>>> 03a6738af63fd5ea676999e85119c8f823cde7c1
         $pdf = App::make('dompdf.wrapper');
         $pdf=PDF::loadView('RNFuncionales.pdfRNF',compact('listaRNF'), compact('pro'))->setOptions(['defaultFont'=>'sans-serif']);
         return $pdf->stream('PlantillaRNF.pdf'); 

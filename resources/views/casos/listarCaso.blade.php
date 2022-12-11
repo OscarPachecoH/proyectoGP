@@ -42,11 +42,7 @@
                         @endif 
                     @endforeach
                     </table>
-<<<<<<< HEAD
                     <a href="{{route('pdfCU', $project->id)}}">
-=======
-                    <a href="{{route('pdfCU',$project->id)}}">
->>>>>>> 03a6738af63fd5ea676999e85119c8f823cde7c1
                         <img src="https://efis.mk/wp-content/uploads/2019/08/pdf-icon.png" width="150" height="150">
                     </a>
                     {{$casos->links()}}

@@ -90,16 +90,10 @@ Route::controller(RfuncionalController::class)->group(function(){
     Route::get('project/{project}/pdfRFuncionales','generatepdf')               -> name('pdfRF');
     Route::get('projects/{project}/RFuncionales/{RFuncional}/edit', 'editRF')                                                                   -> name('editRF');
     Route::put('projects/{project}/RFuncionales/{RFuncional}', 'updateRF')      -> name('updateRF');
+    Route::get('project/{project}/pdfRFuncionales','generatepdf')               -> name('pdfRF');
 });
 
 Route::controller(RNfuncionalController::class)->group(function(){
-<<<<<<< HEAD
-    Route::post('/RNFuncionales/{project}','addRNF')                         -> name('addRNF');
-    Route::get('projects/{project}/RNFuncionales', 'plantillaRNFuncionales') -> name('RNFuncional');
-    Route::get('projects/{project}/RNFuncionaleslista', 'listarRNF')         -> name('listarRNF');
-    Route::delete('RNFuncionales/{RNFuncional}', 'destroy')                  -> name('RNFuncionales.destroy');
-    Route::get('project/{project}/pdfRNFuncionales','generatepdf')           -> name('pdfRNF');
-=======
     Route::post('/RNFuncionales/{project}','addRNF')                            -> name('addRNF');
     Route::get('projects/{project}/RNFuncionales', 'plantillaRNFuncionales')    -> name('RNFuncional');
     Route::get('projects/{project}/RNFuncionaleslista', 'listarRNF')            -> name('listarRNF');
@@ -107,8 +101,7 @@ Route::controller(RNfuncionalController::class)->group(function(){
     Route::get('project/{project}/pdfRNFuncionales','generatepdf')              -> name('pdfRNF');
     Route::get('projects/{project}/RNFuncionales/{RNFuncional}/edit', 'editRNF')                                                                  -> name('editRNF');
     Route::put('projects/{project}/RNFuncionales/{RNFuncional}', 'updateRNF')   -> name('updateRNF');
-
->>>>>>> 03a6738af63fd5ea676999e85119c8f823cde7c1
+    Route::get('project/{project}/pdfRNFuncionales','generatepdf')               -> name('pdfRNF');
 });
 
 Route::controller(ProcesoController::class)->group(function(){
@@ -123,14 +116,9 @@ Route::controller(ProcesoController::class)->group(function(){
 });
 
 Route::controller(ProcesoplantillaController::class)->group(function(){
-<<<<<<< HEAD
-    Route::get('/project/{project}/procesos/{proceso}/plantillaProc', 'plantillaProc')  -> name('addPlantillaProc');
-    Route::post('/project/{project}/procesos/{proceso}/agregarProc', 'addAtributoProc') -> name('agregarAtributoProc');
-    Route::get('project/{project}/proceso/{proceso}/pdf','generatepdf')                 -> name('pdfProc');
-=======
     Route::get('/project/{project}/procesos/{proceso}/plantillaProc', 'plantillaProc')      -> name('addPlantillaProc');
     Route::post('/project/{project}/procesos/{proceso}/agregarProc', 'addAtributoProc')     -> name('agregarAtributoProc');
->>>>>>> 03a6738af63fd5ea676999e85119c8f823cde7c1
+    Route::get('project/{project}/proceso/{proceso}/pdf','generatepdf')                     -> name('pdfProc');
 });
 
 
