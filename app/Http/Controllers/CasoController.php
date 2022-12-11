@@ -42,10 +42,6 @@ class CasoController extends Controller
         return redirect()->route('casos.listarCaso');
     }
 
-    public function showCU(Project $project, Caso $caso){
-        return view('casos.show', compact('caso', 'project'));
-    }
-
     public function editCU(Project $project, Caso $caso){
         $casos = Caso::orderBy('id', 'asc')->paginate();
         return view('casos.edit', compact('caso', 'project'), compact('casos'));

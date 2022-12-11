@@ -37,9 +37,19 @@ class RfuncionalController extends Controller
         return view('RFuncionales.listarRFuncional',compact('RFuncionales'), compact('project'));
     }
 
-    public function destroy(Rfuncional $Rfuncional){
-        $Rfuncional->delete();
+    public function destroy(Rfuncional $RFuncional){
+        $RFuncional->delete();
         return redirect()->route('listarRF');
+    }
+
+    public function editRF(Project $project, Rfuncional $RFuncional){
+        $RFuncionales = Rfuncional::orderBy('id', 'asc')->paginate();
+        return view('RFuncionales.edit', compact('RFuncional', 'project'), compact('RFuncionales'));
+    }
+
+    public function updateRF(Request $request,Project $project,Rfuncional $RFuncional){
+        $RFuncional->update($request->all());
+        return redirect()->route('listarRF',compact('project'));
     }
 
     public function generatepdf($project){

@@ -29,7 +29,7 @@
                                 <td align="center">{{$caso->descripcion}}</td>
                                 <td align="center">
                                     <a href="{{route('editCU', array($project->id, $caso->id))}}" class="btn btn-outline-primary"><img src="https://img.icons8.com/ios/50/null/edit-file.png" width="20" height="20" title="Editar"/>
-                                    </a><br>
+                                    </a>
                                     <form action="{{route('casos.destroy', $caso)}}"  method="POST">
                                         @csrf
                                         @method('delete')
@@ -42,7 +42,11 @@
                         @endif 
                     @endforeach
                     </table>
+<<<<<<< HEAD
                     <a href="{{route('pdfCU', $project->id)}}">
+=======
+                    <a href="{{route('pdfCU',$project->id)}}">
+>>>>>>> 03a6738af63fd5ea676999e85119c8f823cde7c1
                         <img src="https://efis.mk/wp-content/uploads/2019/08/pdf-icon.png" width="150" height="150">
                     </a>
                     {{$casos->links()}}
