@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Proceso;
 use App\Models\Procesoplantilla;
 use App\Models\Project;
+use Illuminate\Support\Facades\App;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ProcesoplantillaController extends Controller
 {
@@ -25,5 +27,14 @@ class ProcesoplantillaController extends Controller
         $plantilla -> save();
 
         return redirect()->route('addPlantillaProc', compact('project', 'proceso'));
+    }
+
+    public function generatepdf($project,$proceso){
+        $pro = Project::find($project);
+        $proc = Proceso::find($proceso);
+        $listaPro = Procesoplantilla::orderBy('id', 'asc')->paginate();
+        $pdf = App::make('dompdf.wrapper');
+        $pdf=PDF::loadView('procesos.pdfPro',compact('listaPro'),compact('proc','pro'))->setOptions(['defaultFont'=>'sans-serif']);
+        return $pdf->stream('PlantillaProceso-'.$proc->clave.'.pdf'); 
     }
 }

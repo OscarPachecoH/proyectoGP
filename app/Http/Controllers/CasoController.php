@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Caso;
 use App\Models\Project;
+use Illuminate\Support\Facades\App;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 use Illuminate\Http\Request;
 
@@ -52,5 +54,13 @@ class CasoController extends Controller
     public function updateCU(Request $request,Project $project,Caso $caso){
         $caso->update($request->all());
         return redirect()->route('listarCU',compact('project'));
+    }
+
+    public function generatepdf($project){
+        $pro = Project::find($project);
+        $listaCU = Caso::orderBy('id', 'asc')->paginate();
+        $pdf = App::make('dompdf.wrapper');
+        $pdf=PDF::loadView('casos.pdfCU',compact('listaCU'), compact('pro'))->setOptions(['defaultFont'=>'sans-serif']);
+        return $pdf->stream('PlantillaCU.pdf'); 
     }
 }

@@ -63,7 +63,7 @@ class ArtefactoController extends Controller
         $listaArt = Artefacto::orderBy('id', 'asc')->paginate();
         $pdf = App::make('dompdf.wrapper');
         $pdf=PDF::loadView('artefactos.pdfArtefactos',compact('listaArt'), compact('pro'))->setOptions(['defaultFont'=>'sans-serif']);
-        return $pdf->stream('PlantillaArtefactos.pdf'); 
+        return $pdf->stream('TablaArtefactos.pdf'); 
     }
 
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Proceso;
 use App\Models\Project;
+use Illuminate\Support\Facades\App;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ProcesoController extends Controller
 {
@@ -46,5 +48,13 @@ class ProcesoController extends Controller
     public function destroyProc(Proceso $proceso){
         $proceso->delete();
         return redirect()->route('listarProc');
+    }
+
+    public function generatepdf($project){
+        $pro = Project::find($project);
+        $listaPro = Proceso::orderBy('id', 'asc')->paginate();
+        $pdf = App::make('dompdf.wrapper');
+        $pdf=PDF::loadView('procesos.pdfProcesos',compact('listaPro'), compact('pro'))->setOptions(['defaultFont'=>'sans-serif']);
+        return $pdf->stream('TablaProcesos.pdf'); 
     }
 }

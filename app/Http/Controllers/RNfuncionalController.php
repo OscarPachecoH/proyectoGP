@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Rnfuncional;
 use App\Models\Project;
+use Illuminate\Support\Facades\App;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class RNfuncionalController extends Controller
 {
@@ -38,5 +40,13 @@ class RNfuncionalController extends Controller
     public function destroy(RNfuncional $RNfuncional){
         $RNfuncional->delete();
         return redirect()->route('listarRNF');
+    }
+
+    public function generatepdf($project){
+        $pro = Project::find($project);
+        $listaRNF = RNfuncional::orderBy('id', 'asc')->paginate();
+        $pdf = App::make('dompdf.wrapper');
+        $pdf=PDF::loadView('RNFuncionales.pdfRNF',compact('listaRNF'), compact('pro'))->setOptions(['defaultFont'=>'sans-serif']);
+        return $pdf->stream('PlantillaRNF.pdf'); 
     }
 }

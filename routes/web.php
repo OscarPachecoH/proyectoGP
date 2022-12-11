@@ -95,7 +95,7 @@ Route::controller(RNfuncionalController::class)->group(function(){
     Route::get('projects/{project}/RNFuncionales', 'plantillaRNFuncionales') -> name('RNFuncional');
     Route::get('projects/{project}/RNFuncionaleslista', 'listarRNF')         -> name('listarRNF');
     Route::delete('RNFuncionales/{RNFuncional}', 'destroy')                  -> name('RNFuncionales.destroy');
-
+    Route::get('project/{project}/pdfRNFuncionales','generatepdf')           -> name('pdfRNF');
 });
 
 Route::controller(ProcesoController::class)->group(function(){
@@ -106,11 +106,13 @@ Route::controller(ProcesoController::class)->group(function(){
     Route::get('projects/{project}/procesos/{proceso}/edit', 'editProc')    -> name('editProc');
     Route::put('projects/{project}/procesos/{proceso}', 'updateProc')       -> name('updateProc');
     Route::delete('procesos/{proceso}', 'destroyProc')                      -> name('destroyProc');
+    Route::get('project/{project}/pdfProcesos','generatepdf')               -> name('pdfListProc');
 });
 
 Route::controller(ProcesoplantillaController::class)->group(function(){
-    Route::get('/project/{project}/procesos/{proceso}/plantillaProc', 'plantillaProc') -> name('addPlantillaProc');
+    Route::get('/project/{project}/procesos/{proceso}/plantillaProc', 'plantillaProc')  -> name('addPlantillaProc');
     Route::post('/project/{project}/procesos/{proceso}/agregarProc', 'addAtributoProc') -> name('agregarAtributoProc');
+    Route::get('project/{project}/proceso/{proceso}/pdf','generatepdf')                 -> name('pdfProc');
 });
 
 
@@ -122,4 +124,5 @@ Route::controller(CasoController::class)->group(function(){
     Route::get('project/{project}/cosos/{caso}', 'showCU')          -> name('showCU');
     Route::get('projects/{project}/casos/{caso}/edit', 'editCU')    -> name('editCU');
     Route::put('projects/{project}/casos/{caso}', 'updateCU')       -> name('updateCU');
+    Route::get('project/{project}/pdfCasos','generatepdf')          -> name('pdfCU');
 });

@@ -52,10 +52,13 @@
                                     <td>{{$plantilla->descripcion}}</td>
                                     <td>{{$plantilla->actividades}}</td>
                                     <td>{{$plantilla->actores}}</td>
-                                </tr>
+                                </tr> 
                             @endif
                         @endforeach
                     </table>
+                    <a href="{{route('pdfProc', array($project->id, $proceso->id))}}">
+                        <img src="https://efis.mk/wp-content/uploads/2019/08/pdf-icon.png" width="150" height="150">
+                    </a>
                 </div>
             </div>
         </div>
