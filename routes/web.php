@@ -88,7 +88,7 @@ Route::controller(RfuncionalController::class)->group(function(){
     Route::get('projects/{project}/RFuncionaleslista', 'listarRF')              -> name('listarRF');
     Route::delete('RFuncionales/{RFuncional}', 'destroy')                       -> name('RFuncionales.destroy');
     Route::get('project/{project}/pdfRFuncionales','generatepdf')               -> name('pdfRF');
-    Route::get('projects/{project}/RFuncionales/{RFuncional}/edit', 'editRF')                                                                   -> name('editRF');
+    Route::get('projects/{project}/RFuncionales/{RFuncional}/edit', 'editRF')   -> name('editRF');
     Route::put('projects/{project}/RFuncionales/{RFuncional}', 'updateRF')      -> name('updateRF');
     Route::get('project/{project}/pdfRFuncionales','generatepdf')               -> name('pdfRF');
 });
@@ -99,9 +99,9 @@ Route::controller(RNfuncionalController::class)->group(function(){
     Route::get('projects/{project}/RNFuncionaleslista', 'listarRNF')            -> name('listarRNF');
     Route::delete('RNFuncionales/{RNFuncional}', 'destroy')                     -> name('RNFuncionales.destroy');
     Route::get('project/{project}/pdfRNFuncionales','generatepdf')              -> name('pdfRNF');
-    Route::get('projects/{project}/RNFuncionales/{RNFuncional}/edit', 'editRNF')                                                                  -> name('editRNF');
+    Route::get('projects/{project}/RNFuncionales/{RNFuncional}/edit', 'editRNF')-> name('editRNF');
     Route::put('projects/{project}/RNFuncionales/{RNFuncional}', 'updateRNF')   -> name('updateRNF');
-    Route::get('project/{project}/pdfRNFuncionales','generatepdf')               -> name('pdfRNF');
+    Route::get('project/{project}/pdfRNFuncionales','generatepdf')              -> name('pdfRNF');
 });
 
 Route::controller(ProcesoController::class)->group(function(){
