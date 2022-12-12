@@ -45,6 +45,7 @@
                             <td class="bg-primary">Descripción:</td>
                             <td class="bg-primary">Actividades:</td>
                             <td class="bg-primary">Actores:</td>
+                            <td class="bg-primary" align="center">Acciones:</td>
                         </tr>
                         @foreach ($listaPlantilla as $plantilla)
                             @if ($plantilla->idProceso == $proceso->id && $plantilla->idProyecto == $project->id)
@@ -52,10 +53,22 @@
                                     <td>{{$plantilla->descripcion}}</td>
                                     <td>{{$plantilla->actividades}}</td>
                                     <td>{{$plantilla->actores}}</td>
-                                </tr>
+                                    <td>
+                                        <form action="{{route('destroyPlantillaProc', array($project->id, $proceso->id,$plantilla->id))}}"  method="POST" align="center">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-outline-danger">
+                                                <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" width="20" height="20" title="Eliminar">
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr> 
                             @endif
                         @endforeach
                     </table>
+                    <a href="{{route('pdfProc', array($project->id, $proceso->id))}}">
+                        <img src="https://efis.mk/wp-content/uploads/2019/08/pdf-icon.png" width="150" height="150">
+                    </a>
                 </div>
             </div>
         </div>

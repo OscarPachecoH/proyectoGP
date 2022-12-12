@@ -53,9 +53,9 @@ class ArtefactoController extends Controller
         return view('artefactos.show', compact('artefacto', 'project'));
     }
 
-    public function destroyArt(Artefacto $artefacto){
+    public function destroyArt(Project $project, Artefacto $artefacto){
         $artefacto->delete();
-        return redirect()->route('listarArt');
+        return redirect()->route('listarArt',compact('project'));
     }
 
     public function generatepdf($project){
@@ -63,7 +63,7 @@ class ArtefactoController extends Controller
         $listaArt = Artefacto::orderBy('id', 'asc')->paginate();
         $pdf = App::make('dompdf.wrapper');
         $pdf=PDF::loadView('artefactos.pdfArtefactos',compact('listaArt'), compact('pro'))->setOptions(['defaultFont'=>'sans-serif']);
-        return $pdf->stream('PlantillaArtefactos.pdf'); 
+        return $pdf->stream('TablaArtefactos.pdf'); 
     }
 
 }

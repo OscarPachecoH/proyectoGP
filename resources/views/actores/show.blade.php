@@ -48,7 +48,7 @@
                                     <img src="https://cdn-icons-png.flaticon.com/512/3489/3489659.png" width="20" height="20">
                                     <b>ACTUALIZAR</b>
                                 </a><br>
-                                <form action="{{route('actores.destroy', $actor)}}"  method="POST">
+                                <form action="{{route('actores.destroy', array($project->id, $actor->id))}}"  method="POST">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger">

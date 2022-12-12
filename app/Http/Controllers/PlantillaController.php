@@ -47,6 +47,11 @@ class PlantillaController extends Controller
         return redirect()->route('addPlantilla', compact('project', 'artefacto'));
     }
 
+    public function destroy(Project $project, Artefacto $artefacto, Plantilla $plantilla){
+        $plantilla->delete();
+        return redirect()->route('addPlantilla',compact('project','artefacto'));
+    }
+
     public function generatepdf($project,$artefacto){
         $pro = Project::find($project);
         $art = Artefacto::find($artefacto);

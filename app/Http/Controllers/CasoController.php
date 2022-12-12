@@ -37,9 +37,9 @@ class CasoController extends Controller
         return view('casos.listarCaso',compact('casos'), compact('project'));
     }
 
-    public function destroy(Caso $caso){
+    public function destroy(Project $project, Caso $caso){
         $caso->delete();
-        return redirect()->route('casos.listarCaso');
+        return redirect()->route('listarCU', compact('project'));
     }
 
     public function editCU(Project $project, Caso $caso){

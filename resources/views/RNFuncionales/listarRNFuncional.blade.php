@@ -29,7 +29,7 @@
                                 <td align="center">
                                     <a href="{{route('editRNF', array($project->id, $RNFuncional->id))}}" class="btn btn-outline-primary"><img src="https://img.icons8.com/ios/50/null/edit-file.png" width="20" height="20" title="Editar"/>
                                     </a>
-                                    <form action="{{route('RNFuncionales.destroy', $RNFuncional)}}"  method="POST">
+                                    <form action="{{route('RNFuncionales.destroy', array($project->id, $RNFuncional->id))}}"  method="POST">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-outline-danger">

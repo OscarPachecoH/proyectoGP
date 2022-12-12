@@ -25,11 +25,12 @@
                         <tr>
                             <td align="center" colspan="2">
                                 <a href="{{route('editProc', array($project->id, $proceso->id))}}" class="btn btn-primary">Actualizar</a><br>
-                                <form action="{{route('destroyProc', $proceso)}}"  method="POST">
+                                <form action="{{route('destroyProc', array($project->id, $proceso->id))}}"  method="POST">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger">
                                         <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" width="20" height="20" title="Eliminar">
+                                        <b>Eliminar</b>
                                     </button><br><br>
                                 </form>
                             </td>

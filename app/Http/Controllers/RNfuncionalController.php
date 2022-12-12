@@ -37,9 +37,9 @@ class RNfuncionalController extends Controller
         return view('RNFuncionales.listarRNFuncional',compact('RNFuncionales'), compact('project'));
     }
 
-    public function destroy(RNfuncional $RNFuncional){
+    public function destroy(Project $project, RNfuncional $RNFuncional){
         $RNFuncional->delete();
-        return redirect()->route('listarRNF');
+        return redirect()->route('listarRNF', compact('project'));
     }
 
     public function editRNF(Project $project, RNfuncional $RNFuncional){
