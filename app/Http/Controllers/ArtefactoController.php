@@ -53,9 +53,9 @@ class ArtefactoController extends Controller
         return view('artefactos.show', compact('artefacto', 'project'));
     }
 
-    public function destroyArt(Artefacto $artefacto){
+    public function destroyArt(Project $project, Artefacto $artefacto){
         $artefacto->delete();
-        return redirect()->route('listarArt');
+        return redirect()->route('listarArt',compact('project'));
     }
 
     public function generatepdf($project){

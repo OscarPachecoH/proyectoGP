@@ -37,9 +37,9 @@ class RfuncionalController extends Controller
         return view('RFuncionales.listarRFuncional',compact('RFuncionales'), compact('project'));
     }
 
-    public function destroy(Rfuncional $RFuncional){
+    public function destroy(Project $project, Rfuncional $RFuncional){
         $RFuncional->delete();
-        return redirect()->route('listarRF');
+        return redirect()->route('listarRF', compact('project'));
     }
 
     public function editRF(Project $project, Rfuncional $RFuncional){

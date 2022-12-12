@@ -45,9 +45,9 @@ class ProcesoController extends Controller
         return view('procesos.show', compact('proceso', 'project'));
     }
 
-    public function destroyProc(Proceso $proceso){
+    public function destroyProc(Project $project, Proceso $proceso){
         $proceso->delete();
-        return redirect()->route('listarProc');
+        return redirect()->route('listarProc', compact('project'));
     }
 
     public function generatepdf($project){

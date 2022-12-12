@@ -73,7 +73,18 @@
                                 </a>
                             </td>
                         </tr>
-                       
+                        <tr>
+                            <td colspan="2" align="center">
+                                <form action="{{route('projects.destroy', $project->id)}}"  method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" width="20" height="20" title="Eliminar">
+                                        <b>Eliminar</b>
+                                    </button><br><br>
+                                </form>
+                            </td> 
+                        </tr>
                     </table>
                 </div>
             </div>

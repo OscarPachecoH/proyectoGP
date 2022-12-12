@@ -52,9 +52,9 @@ class ActorController extends Controller
         return view('actores.show', compact('actor', 'project'));
     }
 
-    public function destroy(Actor $actor){
+    public function destroy(Project $project, Actor $actor){
         $actor->delete();
-        return redirect()->route('listarAct');
+        return redirect()->route('listarAct',compact('project'));
     }
 
     public function generatepdf($project, Actor $actor){

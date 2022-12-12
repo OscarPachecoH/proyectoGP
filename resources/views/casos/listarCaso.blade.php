@@ -30,7 +30,7 @@
                                 <td align="center">
                                     <a href="{{route('editCU', array($project->id, $caso->id))}}" class="btn btn-outline-primary"><img src="https://img.icons8.com/ios/50/null/edit-file.png" width="20" height="20" title="Editar"/>
                                     </a>
-                                    <form action="{{route('casos.destroy', $caso)}}"  method="POST">
+                                    <form action="{{route('casos.destroy', array($project->id, $caso->id))}}"  method="POST">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-outline-danger">

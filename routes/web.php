@@ -50,7 +50,7 @@ Route::controller(ActorController::class)->group(function(){
     Route::get('projects/{project}/actores/{actor}', 'show')            -> name('actores.show');
     Route::get('projects/{project}/actores/{actor}/edit', 'edit')       -> name('actores.edit');
     Route::put('projects/{project}/actores/{actor}', 'update')          -> name('actores.update');
-    Route::delete('actores/{actor}', 'destroy')                         -> name('actores.destroy');
+    Route::delete('projects/{project}/actores/{actor}', 'destroy')      -> name('actores.destroy');
     Route::get('project/{project}/actor/{actor}/pdf','generatepdf')     -> name('actores.pdf');
 });
 
@@ -72,21 +72,22 @@ Route::controller(ArtefactoController::class)->group(function(){
     Route::get('project/{project}/artefactos/{artefacto}', 'showArt')           -> name('showArt');
     Route::get('projects/{project}/artefactos/{artefacto}/edit', 'editArt')     -> name('editArt');
     Route::put('projects/{project}/artefactos/{artefacto}', 'updateArt')        -> name('updateArt');
-    Route::delete('artefactos/{artefacto}', 'destroyArt')                       -> name('destroyArt');
+    Route::delete('projects/{project}/artefactos/{artefacto}', 'destroyArt')    -> name('destroyArt');
     Route::get('project/{project}/pdfArtefactos','generatepdf')                 -> name('pdfListArt');
 });
 
 Route::controller(PlantillaController::class)->group(function(){
-    Route::get('/project/{project}/artefactos/{artefacto}/plantilla', 'plantilla')      -> name('addPlantilla');
-    Route::post('/project/{project}/artefactos/{artefacto}/agregar', 'addAtributo')     -> name('agregarAtributo');
-    Route::get('project/{project}/artefacto/{artefacto}/pdf','generatepdf')             -> name('pdfArt');
+    Route::get('/project/{project}/artefactos/{artefacto}/plantilla', 'plantilla')                  -> name('addPlantilla');
+    Route::post('/project/{project}/artefactos/{artefacto}/agregar', 'addAtributo')                 -> name('agregarAtributo');
+    Route::delete('projects/{project}/artefactos/{artefacto}/plantilla/{plantilla}', 'destroy')     -> name('destroyPlantilla');
+    Route::get('project/{project}/artefacto/{artefacto}/pdf','generatepdf')                         -> name('pdfArt');
 });
 
 Route::controller(RfuncionalController::class)->group(function(){
     Route::post('/RFuncionales/{project}','addRF')                              -> name('addRF');
     Route::get('projects/{project}/RFuncionales', 'plantillaRFuncionales')      -> name('RFuncional');
     Route::get('projects/{project}/RFuncionaleslista', 'listarRF')              -> name('listarRF');
-    Route::delete('RFuncionales/{RFuncional}', 'destroy')                       -> name('RFuncionales.destroy');
+    Route::delete('projects/{project}/RFuncionales/{RFuncional}', 'destroy')    -> name('RFuncionales.destroy');
     Route::get('project/{project}/pdfRFuncionales','generatepdf')               -> name('pdfRF');
     Route::get('projects/{project}/RFuncionales/{RFuncional}/edit', 'editRF')   -> name('editRF');
     Route::put('projects/{project}/RFuncionales/{RFuncional}', 'updateRF')      -> name('updateRF');
@@ -97,7 +98,7 @@ Route::controller(RNfuncionalController::class)->group(function(){
     Route::post('/RNFuncionales/{project}','addRNF')                            -> name('addRNF');
     Route::get('projects/{project}/RNFuncionales', 'plantillaRNFuncionales')    -> name('RNFuncional');
     Route::get('projects/{project}/RNFuncionaleslista', 'listarRNF')            -> name('listarRNF');
-    Route::delete('RNFuncionales/{RNFuncional}', 'destroy')                     -> name('RNFuncionales.destroy');
+    Route::delete('projects/{project}/RNFuncionales/{RNFuncional}', 'destroy')  -> name('RNFuncionales.destroy');
     Route::get('project/{project}/pdfRNFuncionales','generatepdf')              -> name('pdfRNF');
     Route::get('projects/{project}/RNFuncionales/{RNFuncional}/edit', 'editRNF')-> name('editRNF');
     Route::put('projects/{project}/RNFuncionales/{RNFuncional}', 'updateRNF')   -> name('updateRNF');
@@ -111,14 +112,15 @@ Route::controller(ProcesoController::class)->group(function(){
     Route::get('project/{project}/procesos/{proceso}', 'showProc')          -> name('showProc');
     Route::get('projects/{project}/procesos/{proceso}/edit', 'editProc')    -> name('editProc');
     Route::put('projects/{project}/procesos/{proceso}', 'updateProc')       -> name('updateProc');
-    Route::delete('procesos/{proceso}', 'destroyProc')                      -> name('destroyProc');
+    Route::delete('projects/{project}/procesos/{proceso}', 'destroyProc')   -> name('destroyProc');
     Route::get('project/{project}/pdfProcesos','generatepdf')               -> name('pdfListProc');
 });
 
 Route::controller(ProcesoplantillaController::class)->group(function(){
-    Route::get('/project/{project}/procesos/{proceso}/plantillaProc', 'plantillaProc')      -> name('addPlantillaProc');
-    Route::post('/project/{project}/procesos/{proceso}/agregarProc', 'addAtributoProc')     -> name('agregarAtributoProc');
-    Route::get('project/{project}/proceso/{proceso}/pdf','generatepdf')                     -> name('pdfProc');
+    Route::get('/project/{project}/procesos/{proceso}/plantillaProc', 'plantillaProc')          -> name('addPlantillaProc');
+    Route::post('/project/{project}/procesos/{proceso}/agregarProc', 'addAtributoProc')         -> name('agregarAtributoProc');
+    Route::delete('projects/{project}/procesos/{proceso}/plantilla/{plantilla}', 'destroy')     -> name('destroyPlantillaProc');
+    Route::get('project/{project}/proceso/{proceso}/pdf','generatepdf')                         -> name('pdfProc');
 });
 
 
@@ -126,7 +128,7 @@ Route::controller(CasoController::class)->group(function(){
     Route::post('/cosos/{project}','addCU')                         -> name('addCU');
     Route::get('projects/{project}/casos', 'plantillaCasos')        -> name('caso');
     Route::get('projects/{project}/casoslista', 'listarCU')         -> name('listarCU');
-    Route::delete('casos/{caso}', 'destroy')                        -> name('casos.destroy');
+    Route::delete('projects/{project}/casos/{caso}', 'destroy')     -> name('casos.destroy');
     Route::get('project/{project}/cosos/{caso}', 'showCU')          -> name('showCU');
     Route::get('projects/{project}/casos/{caso}/edit', 'editCU')    -> name('editCU');
     Route::put('projects/{project}/casos/{caso}', 'updateCU')       -> name('updateCU');

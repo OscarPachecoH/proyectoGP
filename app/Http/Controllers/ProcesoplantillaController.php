@@ -29,6 +29,11 @@ class ProcesoplantillaController extends Controller
         return redirect()->route('addPlantillaProc', compact('project', 'proceso'));
     }
 
+    public function destroy(Project $project, Proceso $proceso, Procesoplantilla $plantilla){
+        $plantilla->delete();
+        return redirect()->route('addPlantillaProc',compact('project','proceso'));
+    }
+
     public function generatepdf($project,$proceso){
         $pro = Project::find($project);
         $proc = Proceso::find($proceso);

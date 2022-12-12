@@ -75,6 +75,7 @@
                             <td class="bg-primary" align="center">Tipo:</td>
                             <td class="bg-primary" align="center">Rango:</td>
                             <td class="bg-primary" align="center">Excepciones:</td>
+                            <td class="bg-primary" align="center">Acciones</td>
                         </tr>
                         @foreach ($listaPlantilla as $plantilla)
                             @if ($plantilla->idArtefacto == $artefacto->id && $plantilla->idProyecto == $project->id)
@@ -84,6 +85,15 @@
                                     <td align="center">{{$plantilla->tipo}}</td>
                                     <td align="center">{{$plantilla->rango}}</td>
                                     <td align="center">{{$plantilla->excepciones}}</td>
+                                    <td>
+                                        <form action="{{route('destroyPlantilla', array($project->id, $artefacto->id,$plantilla->id))}}"  method="POST" align="center">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-outline-danger">
+                                                <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" width="20" height="20" title="Eliminar">
+                                            </button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endif
                         @endforeach
