@@ -15,14 +15,13 @@
         @foreach ($data as $message)
             <div class="alert alert-success">
                 <i class="fa fa-check"></i>
-                {{$message}}
+                <h1>{{$message}}</h1>
             </div>
         @endforeach
-            
     @else
         <div class="alert alert-success">
             <i class="fa fa-check"></i>
-            {{$data}}
+            <h1>{{$data}}</h1>
         </div>
     @endif
 @endif

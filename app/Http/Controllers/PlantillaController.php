@@ -20,16 +20,16 @@ class PlantillaController extends Controller
     public function addAtributo(Request $request, Project $project, Artefacto $artefacto){
 
         $request -> validate([
-            'atributo' => 'required|min:3',
-            'descripcion' => 'required',
-            'tipo' => 'required',
-            'rango' => 'required',
+            'atributo'      => 'required|min:3',
+            'descripcion'   => 'required',
+            'tipo'          => 'required',
+            'rango'         => 'required',
         ]);
 
         $excepciones = "";
 
-        $excepciones .= $request -> exec1 .
-                        $request -> exec2 . 
+        $excepciones .= $request -> exec1 . " " .
+                        $request -> exec2 . " " .
                         $request -> exec3;
 
         $plantilla = new Plantilla();
@@ -52,7 +52,7 @@ class PlantillaController extends Controller
         $art = Artefacto::find($artefacto);
         $listaPlantilla = Plantilla::orderBy('id', 'asc')->paginate();
         $pdf = App::make('dompdf.wrapper');
-        $pdf=PDF::loadView('artefactos.pdfArt',compact('listaPlantilla'),compact('art','pro'))->setOptions(['defaultFont'=>'sans-serif']);
+        $pdf = PDF::loadView('artefactos.pdfArt',compact('listaPlantilla'),compact('art','pro'))->setOptions(['defaultFont'=>'sans-serif']);
         return $pdf->stream('PlantillaArtefacto-'.$art->clave.'.pdf'); 
     }
 }

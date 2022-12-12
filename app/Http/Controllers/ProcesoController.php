@@ -17,7 +17,7 @@ class ProcesoController extends Controller
         
         $proceso -> save();
 
-        return redirect()->route('proceso',compact('project'));
+        return redirect(route('proceso',compact('project')))->with('success', 'Proyecto agregado');
     }
 
     public function plantillaProceso(Project $project){

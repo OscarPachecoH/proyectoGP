@@ -19,7 +19,7 @@ class ProyectoController extends Controller
         $projects -> nombreProyecto = $request -> nomPro;
         $projects -> save();
 
-        return redirect()->route('dashboard');
+        return redirect(route('dashboard'))->with('success', 'Proyecto Agregado');
     }
     
     public function plantillaActor(Project $project){
