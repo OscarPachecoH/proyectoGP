@@ -21,6 +21,7 @@
                     </a><br><br>
                     <form action="{{route('addRNF',$project->id)}}" method="POST">
                         @csrf
+                        @include('layouts.messages')
                             <table>
                                 <tr>
                                     <td class="label">

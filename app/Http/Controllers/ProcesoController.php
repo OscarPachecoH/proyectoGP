@@ -11,6 +11,12 @@ use Barryvdh\DomPDF\Facade\Pdf;
 class ProcesoController extends Controller
 {
     public function addProc(Request $request, Project $project){
+
+        $request -> validate([
+            'claveProc' => 'required',
+            'nombreProc' => 'required'
+        ]);
+
         $proceso = new Proceso();
 
         $proceso -> clave = $request -> claveProc;

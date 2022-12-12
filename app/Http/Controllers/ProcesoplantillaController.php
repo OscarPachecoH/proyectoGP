@@ -17,7 +17,15 @@ class ProcesoplantillaController extends Controller
     }
 
     public function addAtributoProc(Request $request, Project $project, Proceso $proceso){
+
+        $request -> validate([
+            'descripcion' => 'required',
+            'actividades' => 'required',
+            'actores' => 'required'
+        ]);
+
         $plantilla = new Procesoplantilla();
+        
         $plantilla -> descripcion = $request -> descripcion;
         $plantilla -> actividades = $request -> actividades;
         $plantilla -> actores = $request -> actores;

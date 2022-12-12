@@ -8,20 +8,17 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <table>
-                        <tr>
-                            <td>
-                                {{$proceso->clave}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                {{$proceso->nombre}}
-                            </td>
-                        </tr>
-                    </table>
+                    <h1>{{$proceso->clave .": " . $proceso->nombre}}</h1>
+                    <a class="btn btn-warning" href="{{route('showProc', array($project->id, $proceso->id))}}">
+                        <img src="https://cdn-icons-png.flaticon.com/512/60/60775.png" width="20" height="20">
+                        <b>REGRESAR</b>
+                    </a>
+                    <a class="btn btn-warning" href="{{route('projects.show', $project->id)}}">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4675/4675164.png" width="20" height="20" title="Inicio">
+                    </a><br><br>
                     <form action="{{route('agregarAtributoProc', array($project->id, $proceso->id))}}" method="POST">
                         @csrf
+                        @include('layouts.messages')
                         <table>
                             <tr>
                                 <td>Descripción:</td>
@@ -31,14 +28,15 @@
                             <tr>
                                 <td><textarea name="descripcion" id="" cols="30" rows="2"></textarea></td>
                                 <td><textarea name="actividades" id="" cols="30" rows="2"></textarea></td>
-                                <td>
-                                    <input type="text" name="actores" size="20">
-                                </td>
+                                <td><input type="text" name="actores" size="20"></td>
                                 <td><input type="hidden" name="idProceso" value="{{$proceso->id}}"></td>
                                 <td><input type="hidden" name="idProyecto" value="{{$project->id}}"></td>
                             </tr>
                         </table><br>
-                        <button class="btn btn-success">Agregar</button>
+                        <button class="btn btn-success">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2740/2740600.png" width="20" height="20">
+                            <b>AGREGAR</b>
+                        </button>
                     </form><br>
                     <table class="table table-primary">
                         <tr>

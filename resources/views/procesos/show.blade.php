@@ -12,6 +12,9 @@
                     <a href="{{route('listarProc', $project->id)}}" class="btn btn-warning" >
                         <img src="https://cdn-icons-png.flaticon.com/512/60/60775.png" width="20" height="20">
                         <b>REGRESAR</b>
+                    </a>
+                    <a class="btn btn-warning" href="{{route('projects.show', $project->id)}}">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4675/4675164.png" width="20" height="20" title="Inicio">
                     </a><br><br>
                     <table class="table table-info">
                         <tr>
@@ -24,20 +27,26 @@
                         </tr>
                         <tr>
                             <td align="center" colspan="2">
-                                <a href="{{route('editProc', array($project->id, $proceso->id))}}" class="btn btn-primary">Actualizar</a><br>
+                                <a href="{{route('editProc', array($project->id, $proceso->id))}}" class="btn btn-primary">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/3489/3489659.png" width="20" height="20">
+                                    <b>ACTUALIZAR</b>
+                                </a><br>
                                 <form action="{{route('destroyProc', array($project->id, $proceso->id))}}"  method="POST">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger">
                                         <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" width="20" height="20" title="Eliminar">
-                                        <b>Eliminar</b>
+                                        <b>ELIMINAR</b>
                                     </button><br><br>
                                 </form>
                             </td>
                         </tr>
                         <tr>
                             <td align="center" colspan="2">
-                                <a href="{{route('addPlantillaProc', array($project->id, $proceso->id))}}" class="btn btn-primary">Hacer Plantilla</a><br>
+                                <a href="{{route('addPlantillaProc', array($project->id, $proceso->id))}}" class="btn btn-outline-dark">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/2875/2875069.png" width="20" height="20">
+                                    <b>HACER PLANTILLA</b>
+                                </a>
                             </td>
                         </tr>
                     </table>

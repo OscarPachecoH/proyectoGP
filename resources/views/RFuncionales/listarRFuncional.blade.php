@@ -20,7 +20,7 @@
                     <table class="table table-info">
                         <td class="bg-info" align="center"><b>CLAVE</b></td>
                         <td class="bg-info" align="center"><b>DESCRIPCIÓN</b></th>
-                        <td class="bg-info" align="center"><b>OPCIONES</b></th>
+                        <td class="bg-info" align="center" colspan="2"><b>OPCIONES</b></th>
     
                     @foreach ($RFuncionales as $RFuncional)
                         @if($RFuncional->idProyecto == $project->id)
@@ -28,8 +28,11 @@
                                 <td align="center">{{$RFuncional->clave}}</td>
                                 <td align="center">{{$RFuncional->descripcion}}</td>
                                 <td align="center">
-                                    <a href="{{route('editRF', array($project->id, $RFuncional->id))}}" class="btn btn-outline-primary"><img src="https://img.icons8.com/ios/50/null/edit-file.png" width="20" height="20" title="Editar"/>
+                                    <a href="{{route('editRF', array($project->id, $RFuncional->id))}}" class="btn btn-outline-primary">
+                                        <img src="https://img.icons8.com/ios/50/null/edit-file.png" width="20" height="20" title="Editar"/>
                                     </a>
+                                </td>
+                                <td>
                                     <form action="{{route('RFuncionales.destroy', array($project->id, $RFuncional->id))}}"  method="POST">
                                         @csrf
                                         @method('delete')

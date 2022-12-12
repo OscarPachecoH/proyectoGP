@@ -19,30 +19,32 @@
                     </a><br><br>
                     <table class="table table-info">
                         <td class="bg-info" align="center"><b>CLAVE</b></td>
-                        <td class="bg-info" align="center"><b>DESCRIPCIÓN</b></th>
-                        <td class="bg-info" align="center"><b>OPCIONES</b></th>
-    
+                        <td class="bg-info" align="center"><b>DESCRIPCIÓN</b></td>
+                        <td class="bg-info" align="center" colspan="2"><b>OPCIONES</b></td>
                     @foreach ($casos as $caso)
                         @if($caso->idProyecto == $project->id)
                             <tr>
                                 <td align="center">{{$caso->clave}}</td>
                                 <td align="center">{{$caso->descripcion}}</td>
                                 <td align="center">
-                                    <a href="{{route('editCU', array($project->id, $caso->id))}}" class="btn btn-outline-primary"><img src="https://img.icons8.com/ios/50/null/edit-file.png" width="20" height="20" title="Editar"/>
+                                    <a href="{{route('editCU', array($project->id, $caso->id))}}" class="btn btn-outline-primary">
+                                        <img src="https://img.icons8.com/ios/50/null/edit-file.png" width="20" height="20" title="Editar"/>
                                     </a>
+                                </td>
+                                <td>
                                     <form action="{{route('casos.destroy', array($project->id, $caso->id))}}"  method="POST">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-outline-danger">
                                             <img src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" width="20" height="20" title="Eliminar">
-                                        </button><br><br>
+                                        </button>
                                     </form>
                                 </td>
                             </tr> 
                         @endif 
                     @endforeach
                     </table>
-                    <a href="{{route('pdfCU', $project->id)}}">
+                    <a href="{{route('pdfCU', $project->id)}}" title="Mostrar PDF">
                         <img src="https://efis.mk/wp-content/uploads/2019/08/pdf-icon.png" width="150" height="150">
                     </a>
                     {{$casos->links()}}
