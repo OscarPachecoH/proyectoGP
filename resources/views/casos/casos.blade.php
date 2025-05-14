@@ -19,6 +19,7 @@
                         <img src="https://cdn-icons-png.flaticon.com/512/60/60775.png" width="20" height="20">
                         <b>REGRESAR</b>
                     </a><br><br>
+                    {{/*Formulario para creacion de casos de uso*/}}
                     <form action="{{route('addCU',$project->id)}}" method="POST">
                         @csrf
                         @include('layouts.messages')
@@ -46,11 +47,12 @@
                                     </td>
                                 </tr>
                             </table>
-                            <button class="btn btn-success">
+                            <button class="btn btn-success">{{/*Boton tipo sudmit para proceso de datos*/}}
                                 <img src="https://cdn-icons-png.flaticon.com/512/2740/2740600.png" width="20" height="20">
                                 <b>AGREGAR</b>
                             </button><br>
                     </form>
+                    {{/*Link tipo boton para mostrar vista de lista de casos de uso*/}}
                     <a class="btn btn-primary" href="{{route('listarCU', $project->id)}}">
                         <img src="https://cdn-icons-png.flaticon.com/512/901/901533.png" width="20" height="20">
                         <b>LISTA DE CSOS DE USO </b>

@@ -9,6 +9,7 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <h1>LISTA DE PROYECTOS</h1><br>
+                    {{--Tabla que muestra todos los proyectos--}}
                     <table class="table table-info">
                         <td class="bg-primary" align="center"><b>NOMBRE</b></td>
                         <td class="bg-primary" align="center"><b>ACCIONES</b></td>

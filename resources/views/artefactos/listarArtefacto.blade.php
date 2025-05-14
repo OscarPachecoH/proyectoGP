@@ -17,18 +17,19 @@
                     <a class="btn btn-warning" href="{{route('projects.show', $project->id)}}">
                         <img src="https://cdn-icons-png.flaticon.com/512/4675/4675164.png" width="20" height="20" title="Inicio">
                     </a><br><br>
-                    <table class="table table-info">
+                    <table class="table table-info">{{/*Tabla que muestra los datos ordenados*/}}
                         <td class="bg-info" align="center"><b>CLAVE</b></td>
                         <td class="bg-info" align="center"><b>NOMBRE</b></th>
                         <td class="bg-info" align="center"><b>DESCRIPCIÓN</b></th>
                         <td class="bg-info" align="center"><b>OPCIONES</b></th>
                     @foreach ($artefactos as $artefacto)
                         @if($artefacto->idProyecto == $project->id)
-                            <tr>
+                            <tr>{{/*Obtencion de datos*/}}
                                 <td align="center">{{$artefacto->clave}}</td>
                                 <td align="center">{{$artefacto->nombre}}</td>
                                 <td align="center">{{$artefacto->descripcion}}</td>
                                 <td align="center">
+                                    {{/*Lik tipo boton para mostrar datos de actor seleccionado*/}}
                                     <a href="{{route('showArt', array($project->id, $artefacto->id))}}" class="btn btn-outline-primary" title="View">
                                         <img src="https://cdn-icons-png.flaticon.com/512/64/64999.png" width="20" height="20">
                                     </a>
@@ -40,7 +41,7 @@
                     <a href="{{route('pdfListArt',$project->id)}}">
                         <img src="https://efis.mk/wp-content/uploads/2019/08/pdf-icon.png" width="150" height="150">
                     </a>
-                    {{$artefactos->links()}}
+                    {{$artefactos->links() /*Genera una barra de paginación de datos*/}}
                     <br><br>
                 </div>
             </div>

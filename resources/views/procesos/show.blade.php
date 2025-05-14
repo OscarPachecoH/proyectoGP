@@ -16,6 +16,7 @@
                     <a class="btn btn-warning" href="{{route('projects.show', $project->id)}}">
                         <img src="https://cdn-icons-png.flaticon.com/512/4675/4675164.png" width="20" height="20" title="Inicio">
                     </a><br><br>
+                    {{/*Tabla que muestra los datos del proceso*/}}
                     <table class="table table-info">
                         <tr>
                             <td class="bg-info" align="right"><b>Clave</b></td>
@@ -27,10 +28,12 @@
                         </tr>
                         <tr>
                             <td align="center" colspan="2">
+                                {{/*boton para actualizacion de datos*/}}
                                 <a href="{{route('editProc', array($project->id, $proceso->id))}}" class="btn btn-primary">
                                     <img src="https://cdn-icons-png.flaticon.com/512/3489/3489659.png" width="20" height="20">
                                     <b>ACTUALIZAR</b>
                                 </a><br>
+                                {{/*Formularo para borrado de datos*/}}
                                 <form action="{{route('destroyProc', array($project->id, $proceso->id))}}"  method="POST">
                                     @csrf
                                     @method('delete')
@@ -43,6 +46,7 @@
                         </tr>
                         <tr>
                             <td align="center" colspan="2">
+                                {{/*Boton para creacion de plantilla*/}}
                                 <a href="{{route('addPlantillaProc', array($project->id, $proceso->id))}}" class="btn btn-outline-dark">
                                     <img src="https://cdn-icons-png.flaticon.com/512/2875/2875069.png" width="20" height="20">
                                     <b>HACER PLANTILLA</b>

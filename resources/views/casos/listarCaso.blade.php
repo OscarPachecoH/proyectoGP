@@ -17,6 +17,7 @@
                     <a class="btn btn-warning" href="{{route('projects.show', $project->id)}}">
                         <img src="https://cdn-icons-png.flaticon.com/512/4675/4675164.png" width="20" height="20" title="Inicio">
                     </a><br><br>
+                    {{/*Tabla que muestra los datos de casos de uso*/}}
                     <table class="table table-info">
                         <td class="bg-info" align="center"><b>CLAVE</b></td>
                         <td class="bg-info" align="center"><b>DESCRIPCIÓN</b></td>
@@ -32,6 +33,7 @@
                                     </a>
                                 </td>
                                 <td>
+                                    {{/*formulario para eliminar*/}}
                                     <form action="{{route('casos.destroy', array($project->id, $caso->id))}}"  method="POST">
                                         @csrf
                                         @method('delete')
@@ -44,6 +46,7 @@
                         @endif 
                     @endforeach
                     </table>
+                    {{/*Boton PDF*/}}
                     <a href="{{route('pdfCU', $project->id)}}" title="Mostrar PDF">
                         <img src="https://efis.mk/wp-content/uploads/2019/08/pdf-icon.png" width="150" height="150">
                     </a>

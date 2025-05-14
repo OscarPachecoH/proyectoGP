@@ -14,6 +14,7 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    {{/*Parte forntal de la pagina con boton de retorno*/}}
                     <h1>Editar Actor</h1>
                     <a href="{{route('actores.show',array($project->id, $actor->id))}}" class="btn btn-warning" >
                         <img src="https://cdn-icons-png.flaticon.com/512/60/60775.png" width="20" height="20">
@@ -22,6 +23,7 @@
                     <a class="btn btn-warning" href="{{route('projects.show', $project->id)}}">
                         <img src="https://cdn-icons-png.flaticon.com/512/4675/4675164.png" width="20" height="20" title="Inicio">
                     </a><br><br>
+                    {{/*Formulario para editar actor*/}}
                     <form action="{{route('actores.update',array($project->id, $actor->id))}}" method="POST" >
                         @csrf
                         @method('put')
@@ -31,7 +33,7 @@
                                     <label for="">Clave:</label>
                                 </td>
                                 <td>
-                                    <input name="clave" type="text" placeholder="Ejem: ACT.01" value="{{old('clave', $actor->clave)}}">
+                                    <input name="clave" type="text" placeholder="Ejem: ACT.01" value="{{old('clave', $actor->clave) /*Recuperacion de datos*/}}">
                                 </td>
                             </tr>
                             <tr>
@@ -71,6 +73,7 @@
                                     <label for="">Referencias:</label>
                                 </td>
                                 <td>
+                                    {{/*Lista de referecias de actor*/}}
                                     <select name="referencias" id="referencias">
                                         @foreach ($actores as $act)
                                             @if ($act->idProyecto == $project->id)
@@ -81,7 +84,7 @@
                                 </td>
                             </tr>
                         </table>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary">{{/*Boton tipo sudmit para proceso de datos*/}}
                             <img src="https://cdn-icons-png.flaticon.com/512/3489/3489659.png" width="20" height="20">
                             <b>ACTUALIZAR</b>
                         </button><br>

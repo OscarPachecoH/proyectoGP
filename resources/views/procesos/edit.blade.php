@@ -21,6 +21,7 @@
                     <a class="btn btn-warning" href="{{route('projects.show', $project->id)}}">
                         <img src="https://cdn-icons-png.flaticon.com/512/4675/4675164.png" width="20" height="20" title="Inicio">
                     </a><br><br>
+                    {{/*Formulario principal*/}}
                     <form action="{{route('updateProc', array($project->id, $proceso->id))}}" method="POST" >
                         @csrf
                         @method('put')
@@ -42,7 +43,7 @@
                                 </td>
                             </tr>
                         </table>
-                        <button class="btn btn-primary">
+                        <button class="btn btn-primary">{{/*Boton para proceso de datos*/}}
                             <img src="https://cdn-icons-png.flaticon.com/512/3489/3489659.png" width="20" height="20">
                             <b>ACTUALIZAR</b>
                         </button><br>

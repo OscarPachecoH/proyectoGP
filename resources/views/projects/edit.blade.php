@@ -15,13 +15,12 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-    
                     <h1>Editar Proyecto</h1><br><br>
+                    {{/*Formulario principal*/}}
                     <form action="{{route('projects.update',$project)}}" method="POST" >
                         @csrf
                         @method('put')
                         <table>
-                            
                             <tr>
                                 <td class="label">
                                     <label for="">Nombre:</label>
@@ -31,6 +30,7 @@
                                 </td>
                             </tr>
                         </table>
+                        {{/*Boton para agregar datos*/}}
                         <button class="btn btn-success">Actualizar</button><br>
                         <a href="{{route('projects.show',$project)}}" class="btn btn-danger" >REGRESAR</a>
                     </form>

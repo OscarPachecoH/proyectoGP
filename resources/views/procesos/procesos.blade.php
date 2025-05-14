@@ -19,6 +19,7 @@
                         <img src="https://cdn-icons-png.flaticon.com/512/60/60775.png" width="20" height="20">
                         <b>REGRESAR</b>
                     </a><br><br>
+                    {{/*Formulario principal*/}}
                     <form action="{{route('addProc', $project->id)}}" method="POST">
                         @csrf
                         @include('layouts.messages')
@@ -46,12 +47,12 @@
                                     </td>
                                 </tr>
                             </table>
-                            <button class="btn btn-success">
+                            <button class="btn btn-success">{{/*Boton para agregar datos*/}}
                                 <img src="https://cdn-icons-png.flaticon.com/512/2740/2740600.png" width="20" height="20">
                                 <b>AGREGAR</b>
                             </button><br>
                     </form>
-                    <a class="btn btn-primary" href="{{route('listarProc', $project->id)}}">
+                    <a class="btn btn-primary" href="{{route('listarProc', $project->id)}}">{{/*Boton para mostrar lista de procesos*/}}
                         <img src="https://cdn-icons-png.flaticon.com/512/8111/8111775.png" width="20" height="20">
                         <b>LISTA DE PROCESOS</b>
                     </a>

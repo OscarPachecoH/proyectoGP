@@ -16,6 +16,7 @@
                     <a class="btn btn-warning" href="{{route('projects.show', $project->id)}}">
                         <img src="https://cdn-icons-png.flaticon.com/512/4675/4675164.png" width="20" height="20" title="Inicio">
                     </a><br><br>
+                    {{/*Formulario principal*/}}
                     <form action="{{route('agregarAtributoProc', array($project->id, $proceso->id))}}" method="POST">
                         @csrf
                         @include('layouts.messages')
@@ -33,11 +34,12 @@
                                 <td><input type="hidden" name="idProyecto" value="{{$project->id}}"></td>
                             </tr>
                         </table><br>
-                        <button class="btn btn-success">
+                        <button class="btn btn-success">{{/*Boton para agregar datos*/}}
                             <img src="https://cdn-icons-png.flaticon.com/512/2740/2740600.png" width="20" height="20">
                             <b>AGREGAR</b>
                         </button>
                     </form><br>
+                    {{/*Tabla que muestra los datos de la plantilla*/}}
                     <table class="table table-primary">
                         <tr>
                             <td class="bg-primary">Descripción:</td>
@@ -64,6 +66,7 @@
                             @endif
                         @endforeach
                     </table>
+                    {{/*Boton de PDF*/}}
                     <a href="{{route('pdfProc', array($project->id, $proceso->id))}}">
                         <img src="https://efis.mk/wp-content/uploads/2019/08/pdf-icon.png" width="150" height="150">
                     </a>

@@ -1,66 +1,103 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h1 align="center"> 📚 Gestor de proyectos</h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Captura principal](screenshots/capprincipal.png)
+**Gestor de proyectos**, es una aplicación web desarrollado con **Laravel 9.19** y **JetStream**, diseñada para la gestión de proyectos de software. Permite crear proyectos, listar artefactos, definir actores, y más.
 
-## About Laravel
+Este proyecto fue creado por estudiantes para la materia de *Desarrollo WEB*, por lo que pude tener limitaciones en su estructura o robustez.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📍 Características
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Creación y gestión de proyectos.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Listado de proyectos con filtros básicos.
 
-## Learning Laravel
+- Gestión de artefactos y actores asociados a cada proyecto.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Autentificación de usuario con JetStream.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Interfaz responsiva con Bootstrap.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🛠️ Tecnologías
 
-## Laravel Sponsors
+- **Laravel 9.19**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- **PHP 8.2**
 
-### Premium Partners
+- **MySQL**
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- **JetStream**
 
-## Contributing
+- **Bootstrap**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 📁Estructura del proyecto
 
-## Code of Conduct
+Laravel ofrece una estructura definida cuando se crea el proyecto, pero el proyecto tiene modificaciones notables en las siguientes secciones:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **`/app/Http/Controllers`:** Controladores personalizados para gestionar proyectos, artefactos y actores.
 
-## Security Vulnerabilities
+- **`/app/Models`:** Modelos para la lógica de datos.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- **`/database/migrations`:** Migraciones para las tablas de proyectos, actores, artefactos, etc.
 
-## License
+- **`/resources/views`:** Vistas Blade para la interfaz de usuario.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- **`/routes/web.php`:** Definición de rutas para las funcionalidades principales del proyecto.
+
+## 🚀 Instalación:
+
+Sigue los siguientes pasos para ejecutar el proyecto localmente.
+
+### ✅Requisitos
+
+- PHP >= 8.0
+
+- Composer 2.x
+
+- Node.js >= 16.x
+
+- MySQL o cualquier base de datos compatibles con Laravel
+
+- Git
+
+### 💡 Pasos
+
+1. **Clona el repositorio:** Usa el comando:  
+	```bash
+	git clone https://github.com/OscarPachecoH/proyectoGP
+	```
+2. **Instalas las dependencias:** Entra al proyecto en tu maquina e instala las dependencias: 
+	```bash
+	cd proyectoGP
+	composer install
+	npm install
+	```
+
+3. **Verifica archivo .env.example:** En este archivo esta la estructura de las variables de entorno del proyecto, crea un archivo y llámalo .env, después copia todo el contenido del archivo .env.example en .env.
+
+4. **Crear key app:** Usa el comando 
+	```bash
+	php artisan key:generate
+	 ```
+y verifica que esta en tu archivo .env
+
+5. **Crear base de datos:** Crea la base de datos en tu gestor y llamala proyectogp.
+
+6. **Ejecuta migraciones:** Usa el comando 
+	```bash 
+	php artisan migrate
+	```
+
+7. **Inicia el servidor:** Inicia el proyecto con 
+	```bash 
+	php artisan serve
+	```
+	 y abre [http://localhost:8000](http://localhost:8000) en el navegador.
+
+![Captura vista home](screenshots/caphome.png)
+## 🔒Licencia
+
+Este proyecto está bajo la Licencia MIT (LICENSE). Siéntete libre de usarlo como inspiración o modificarlo. Para colaboraciones, contáctame en josuehernaa@gmail.com (mailto:josuehernaa@gmail.com).
+
+## 🙌 Agradecimientos
+
+A mis compañeros de equipo y profesores por su apoyo durante el desarrollo de este proyecto para la materia de Desarrollo Web.
